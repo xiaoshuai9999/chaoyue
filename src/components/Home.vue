@@ -109,12 +109,10 @@ const mouseIn = (item) => {
     box-shadow: -9px 1px 24px 0 #9f9f9f1a;
     border-radius: 8px;
     &.selected {
-      background: url("../assets/img/hover_bg.png") no-repeat;
-      background-size: 100% 100%;
+      background-image: linear-gradient(to bottom, #ABC7FD, #FFFFFF);
     }
     &:hover {
-      background: url("../assets/img/hover_bg.png") no-repeat;
-      background-size: 100% 100%;
+      background-image: linear-gradient(to bottom, #ABC7FD, #FFFFFF);
     }
     .item_title {
       color: #000000;
