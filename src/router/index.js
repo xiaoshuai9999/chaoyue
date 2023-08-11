@@ -2,18 +2,19 @@ import {createRouter, createWebHistory} from 'vue-router'
 
 const routerHistory = createWebHistory()
 
-import Home from '/src/pages/home/index.vue'
+import Layout from '@pages/layout/index.vue'
 
 // 定义路由
 const routes = [
     {
         path: '/',
         redirect: { name: 'Home' },
+        component: Layout,
         children: [
             {
                 path: '/home',
                 name: 'Home',
-                component: Home,
+                component: () => import('@pages/home/index.vue'),
             }
         ]
     }
