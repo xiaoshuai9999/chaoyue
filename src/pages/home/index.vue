@@ -1,11 +1,11 @@
 <script setup>
-import {ref} from "vue";
-import TYPE from "./types.js";
+import { ref } from 'vue'
+import TYPE from './types.js'
 
 const policeFilingHref = ref('http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32011502011885')
-const policeFilingText = ref(`苏公网安备 32011502011885号`)
+const policeFilingText = ref('苏公网安备 32011502011885号')
 const domainFilingHref = ref('https://beian.miit.gov.cn/')
-const domainFilingText = ref(`苏ICP备2023021194号-1`)
+const domainFilingText = ref('苏ICP备2023021194号-1')
 const types = ref(TYPE)
 const access = (item) => {
   window.open(item.url)
@@ -25,8 +25,14 @@ const mouseIn = (item) => {
 <template>
   <div class="home">
     <div class="title-box">
-      <div class="title" />
-      <el-link class="link" v-for="o in commonObj" :key="o.version" :href="o.url" type="danger" target="_blank">{{ o.version }}</el-link>
+      <el-link
+          class="link"
+          v-for="o in commonObj"
+         :key="o.version"
+         :href="o.url"
+         type="danger"
+          target="_blank"
+      >{{ o.version }}</el-link>
     </div>
     <el-scrollbar style="height:75vh; min-height: 225px;overflow-x: hidden;">
       <div class="entrance_box">
@@ -69,7 +75,7 @@ const mouseIn = (item) => {
   width: 100%;
   height: 16%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   .title {
     top: 0;
