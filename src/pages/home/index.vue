@@ -47,7 +47,7 @@ const mouseIn = (item) => {
       <div class="footer nine-color">
       <span>关于超越 |
         <el-link :href="policeFilingHref" target='_blank' class="margin-12-right" type="info">
-          <img class="gonganbeian" src="../assets/img/gonganbeian.png"  alt=""/>{{ policeFilingText }}
+          <img class="gonganbeian" src="../../assets/img/gonganbeian.png" alt=""/>{{ policeFilingText }}
         </el-link>
         <el-link :href="domainFilingHref" target='_blank' type="info">{{ domainFilingText }}</el-link>
         2023 个人版权所有
@@ -75,7 +75,7 @@ const mouseIn = (item) => {
     top: 0;
     width: 25%;
     height: 100%;
-    background: url("../assets/img/title.jpg") no-repeat;
+    background: url("../../assets/img/title.jpg") no-repeat;
     background-size: 100% 100%;
     position: relative;
     z-index: 1;
@@ -131,19 +131,19 @@ const mouseIn = (item) => {
   margin-top: 12px;
 }
 .item_icon_1 {
-  background: url("../assets/img/nodejs.png") no-repeat;
+  background: url("../../assets/img/nodejs.png") no-repeat;
   background-size: 100% 100%;
 }
 .item_icon_2 {
-  background: url("../assets/img/git.png") no-repeat;
+  background: url("../../assets/img/git.png") no-repeat;
   background-size: 100% 100%;
 }
 .item_icon_3 {
-  background: url("../assets/img/jetbrains.png") no-repeat;
+  background: url("../../assets/img/jetbrains.png") no-repeat;
   background-size: 100% 100%;
 }
 .item_icon_4 {
-  background: url("../assets/img/windows.png") no-repeat;
+  background: url("../../assets/img/windows.png") no-repeat;
   background-size: 100% 100%;
 }
 .footer {
