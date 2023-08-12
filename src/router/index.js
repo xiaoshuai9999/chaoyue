@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import Layout from '@pages/layout/index.vue'
+import Layout from '@/layout/index.vue'
 
 const routerHistory = createWebHistory()
 
@@ -8,13 +8,23 @@ const routerHistory = createWebHistory()
 const routes = [
   {
     path: '/',
-    redirect: { name: 'Home' },
+    redirect: { name: 'Software' },
     component: Layout,
     children: [
       {
-        path: '/home',
-        name: 'Home',
-        component: () => import('@pages/home/index.vue')
+        path: '/software',
+        name: 'Software',
+        component: () => import('@pages/software/index.vue')
+      },
+      {
+        path: '/translate',
+        name: 'Translate',
+        component: () => import('@pages/translate/index.vue')
+      },
+      {
+        path: '/convert',
+        name: 'Convert',
+        component: () => import('@pages/convert/index.vue')
       }
     ]
   }
