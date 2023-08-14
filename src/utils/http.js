@@ -1,11 +1,9 @@
-import { createAlova } from 'alova'
-import GlobalFetch from 'alova/GlobalFetch'
-import VueHook from 'alova/vue'
+import axios from 'axios'
 
-const alovaInstance = createAlova({
-  baseURL: 'http://apis.juhe.cn',
-  statesHook: VueHook,
-  requestAdapter: GlobalFetch()
+const axiosInstance = axios.create({
+  baseURL: import.meta.env.VITE_APP_URL,
+  method: 'POST',
+  timeout: 20 * 1000
 })
 
-export default alovaInstance
+export default axiosInstance

@@ -6,7 +6,8 @@
       "@pages/*": ["src/pages/*"],
       "@assets/*": ["src/assets/*"],
       "@utils/*": ["src/utils/*"]
-    }
+    },
+    "types": ["vite/client"]
   },
   "exclude": ["node_modules", "dist"]
 }
