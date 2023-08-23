@@ -3,10 +3,11 @@ import router from '@/router/index.js'
 
 const activeIndex2 = ref('0')
 const menus = [
-  { index: '0', routeName: 'Software', name: '软件' },
-  { index: '1', routeName: 'Translate', name: '极简翻译' },
-  { index: '2', routeName: 'Convert', name: '超能转换' },
-  { index: '3', routeName: 'Info', name: 'Info' }
+  { index: '0', routeName: 'Home', name: '首页' },
+  { index: '1', routeName: 'Software', name: '软件' },
+  { index: '2', routeName: 'Translate', name: '极简翻译' },
+  { index: '3', routeName: 'Convert', name: '超能转换' },
+  { index: '4', routeName: 'Info', name: 'Info' }
 ]
 const handleSelect = (key) => {
   const menu = menus.find(i => i.index === key)

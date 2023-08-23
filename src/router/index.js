@@ -8,9 +8,14 @@ const routerHistory = createWebHistory()
 const routes = [
   {
     path: '/',
-    redirect: { name: 'Software' },
+    redirect: { name: 'Home' },
     component: Layout,
     children: [
+      {
+        path: '/home',
+        name: 'Home',
+        component: () => import('@pages/home/index.vue')
+      },
       {
         path: '/software',
         name: 'Software',
