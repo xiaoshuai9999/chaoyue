@@ -22,3 +22,11 @@ export function unique (arr, prop) {
   const res = new Map()
   return arr.filter((a) => !res.has(a[prop]) && res.set(a[prop], 1))
 }
+
+// 数组分组
+export function groupBy (arr, key) {
+  return arr.reduce((rv, current) => {
+    (rv[current[key]] = rv[current[key]] || []).push(current)
+    return rv
+  }, {})
+}

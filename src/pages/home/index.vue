@@ -1,9 +1,13 @@
 <script setup>
 import localforage from 'localforage'
 import dayjs from 'dayjs'
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import bdLogo from '@/assets/img/home/bd-logo.png'
 import { deepCopy, unique } from '@utils/index.js'
+const policeFilingHref = ref('http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32011502011885')
+const policeFilingText = ref('苏公网安备 32011502011885号')
+const domainFilingHref = ref('https://beian.miit.gov.cn/')
+const domainFilingText = ref('苏ICP备2023021194号-1')
 const baidu = 'https://www.baidu.com/s?wd='
 const searchWord = ref('')
 const history = ref([])
@@ -46,24 +50,25 @@ const handleSelect = (item) => {
 </script>
 
 <template>
-  <div class="main-box">
-    <div class="main-top">
-      <el-image class="bd-logo" :src="bdLogo" fit="contain"></el-image>
-      <el-autocomplete
-          v-model="searchWord"
-          :fetch-suggestions="querySearch"
-          @keydown.enter="goBaidu"
-          :clearable="true"
-          :size="'large'"
-          @select="handleSelect"
-          style="width: 40vw;"
-      ></el-autocomplete>
-      <div class="bd-btn" @click="goBaidu">百度一下</div>
-      <el-tooltip
-          effect="dark"
-          content="搜索记录"
-          placement="right"
-      >
+  <div class="main">
+    <div class="main-box">
+      <div class="main-top">
+        <el-image class="bd-logo" :src="bdLogo" fit="contain"></el-image>
+        <el-autocomplete
+            v-model="searchWord"
+            :fetch-suggestions="querySearch"
+            @keydown.enter="goBaidu"
+            :clearable="true"
+            :size="'large'"
+            @select="handleSelect"
+            style="width: 40vw;"
+        ></el-autocomplete>
+        <div class="bd-btn" @click="goBaidu">百度一下</div>
+        <el-tooltip
+            effect="dark"
+            content="搜索记录"
+            placement="right"
+        >
         <span>
           <el-popover key="my-popover" placement="left" :width="650" trigger="click">
           <template #reference>
@@ -77,13 +82,28 @@ const handleSelect = (item) => {
           </el-table>
         </el-popover>
         </span>
-      </el-tooltip>
+        </el-tooltip>
+      </div>
+      <div class="main-content"></div>
     </div>
-    <div class="main-content"></div>
+    <div class="footer nine-color">
+      <span>关于超越 |
+        <el-link :href="policeFilingHref" target='_blank' class="margin-12-right" type="info">
+          <img class="gonganbeian" src="../../assets/img/gonganbeian.png" alt=""/>{{ policeFilingText }}
+        </el-link>
+        <el-link :href="domainFilingHref" target='_blank' type="info">{{ domainFilingText }}</el-link>
+        2023 个人版权所有
+      </span>
+    </div>
   </div>
 </template>
 
 <style scoped lang="scss">
+.main {
+  width: 100%;
+  height: calc(100vh - 60px);
+  position: relative;
+}
 .main-box {
   display: flex;
   flex-direction: column;
@@ -126,6 +146,19 @@ const handleSelect = (item) => {
       font-size: 18px;
       color: #333;
     }
+  }
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 8px;
+  width: 100%;
+  height: 5%;
+  span {
+    padding-top: 6px;
   }
 }
 </style>

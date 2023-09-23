@@ -20,7 +20,7 @@ const handleSelect = (key) => {
       :default-active="activeIndex2"
       class="el-menu-demo"
       mode="horizontal"
-      background-color="#38A6C0"
+      background-color="#6CC9DB"
       text-color="#fff"
       active-text-color="#ffd04b"
       @select="handleSelect"
@@ -40,5 +40,8 @@ const handleSelect = (key) => {
   width: 50%;
   margin: 0 auto;
   border-bottom: 1px solid #ebeef5;
+  :deep(.el-menu-item) {
+    font-size: 16px;
+  }
 }
 </style>

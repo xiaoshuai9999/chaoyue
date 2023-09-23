@@ -23,7 +23,7 @@ import defaultAvatar from '@assets/img/default-avatar.png'
   justify-content: space-between;
   height: 50px;
   width: 100%;
-  background: #38A6C0;
+  background: #6CC9DB;
   // 下阴影
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
   .logo {
