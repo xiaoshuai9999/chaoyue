@@ -16,14 +16,21 @@ const currentClass = ref(classify.value[0])
 const currentItems = computed(() => {
   if (currentClass.value.code === 'common') {
     if (commonTool.value.length) {
-      return commonTool.value
+      return commonTool.value.map(i => ({
+        imgUrl: new URL(`../../assets/img/${i.type}/${i.icon}`, import.meta.url).href,
+        ...i
+      }))
     } else {
       currentClass.value = classify.value[1]
     }
   } else {
-    return groupTools.value[currentClass.value.code]
+    return groupTools.value[currentClass.value.code].map(i => ({
+      imgUrl: new URL(`../../assets/img/${i.type}/${i.icon}`, import.meta.url).href,
+      ...i
+    }))
   }
 })
+const getBackImg = (imgUrl) => ({ backgroundImage: `url('${imgUrl}')` })
 const changeClassify = (c) => {
   currentClass.value = c
   setTimeout(() => {
@@ -93,7 +100,7 @@ const changeCollect = (item, isCommon) => {
                 @click="access(item)"
             >
               <div class="item_title">{{ item.name }}</div>
-              <div v-if="item.icon" :style="{'background-image': `url('/src/assets/img/${item.type}/${item.icon}')`}" :class="['item_icon', `item_icon_${index+1}`]"></div>
+              <div v-if="item.icon" :style="getBackImg(item.imgUrl)" :class="['item_icon', `item_icon_${index+1}`]"></div>
               <div v-else class="item_icon" style="background: #F2F9FB;">
                 <el-icon size="24"><Picture /></el-icon>
               </div>
